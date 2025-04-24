@@ -156,7 +156,7 @@ document.title = "{{ agency }} | FedRAMP Marketplace";
     });
   });
 
-  fetch('/data/products.json')
+  fetch('{{ "/data/products.json" | url }}')
     .then(res => res.json())
     .then(products => {
       allProducts = products.filter(p => p.product_name && (!agencyContext || p.agency.toLowerCase() === agencyContext));
