@@ -72,7 +72,7 @@ title: FedRAMP Marketplace
   let selectedToCompare = new Set();
   let currentRendered = [];
 
-  fetch('/data/products.json')
+  fetch('data/products.json')
     .then(res => res.json())
     .then(products => {
       allProducts = products.filter(p => p.product_name);
