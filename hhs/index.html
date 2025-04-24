@@ -12,6 +12,7 @@
 <body>
   <header>
     <h1><a href="/fedramp-marketplace-lite/" style="text-decoration: none;">FedRAMP Marketplace</a></h1>
+
   </header>
 
   <main>
@@ -164,7 +165,7 @@ document.title = "HHS | FedRAMP Marketplace";
     });
   });
 
-  fetch('/data/products.json')
+  fetch('/fedramp-marketplace-lite/data/products.json')
     .then(res => res.json())
     .then(products => {
       allProducts = products.filter(p => p.product_name && (!agencyContext || p.agency.toLowerCase() === agencyContext));
