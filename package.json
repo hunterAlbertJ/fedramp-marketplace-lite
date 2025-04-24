@@ -1,0 +1,17 @@
+{
+  "name": "fedramp-marketplace",
+  "version": "1.0.0",
+  "description": "Open source FedRAMP Marketplace",
+  "scripts": {
+    "data": "node src/scripts/hydrate-products.js",
+    "dev": "npm run data && eleventy --serve",
+    "build": "npm run data && eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "csv-parser": "^3.0.0"
+  },
+  "dependencies": {
+    "csv-parse": "^5.6.0"
+  }
+}

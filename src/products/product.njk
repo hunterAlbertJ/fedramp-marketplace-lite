@@ -1,0 +1,22 @@
+---
+layout: base.njk
+pagination:
+  data: products
+  size: 1
+  alias: product
+permalink: "{{ product.agency | slug }}/{{ product.product_id }}/index.html"
+title: "{{ product.product_name }}"
+---
+{% set title = product.product_name + ' | ' + product.agency + ' – FedRAMP Marketplace' %}
+<script>
+  document.title = "{{ title }}";
+</script>
+
+<h1>{{ product.product_name }}</h1>
+<p><strong>Agency:</strong> {{ product.agency }}</p>
+<p><strong>Sponsor:</strong> {{ product.sponsor }}</p>
+<p><strong>Certification:</strong> {{ product.certification_level }}</p>
+<p><strong>Date:</strong> {{ product.authorization_date }}</p>
+<p><strong>Impact:</strong> {{ product.impact_level }}</p>
+<p>{{ product.description }}</p>
+<p><a href="{{ product.link }}" target="_blank">Visit Product</a></p>
