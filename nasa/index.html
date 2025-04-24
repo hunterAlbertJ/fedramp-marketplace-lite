@@ -152,6 +152,7 @@ document.title = "NASA | FedRAMP Marketplace";
   const compareBtn = document.getElementById('compareBtn');
   const resetCompareBtn = document.getElementById('resetCompare');
   const exportBtn = document.getElementById('exportCsv');
+  const basePath = window.location.pathname.replace(/\/$/, '');
   let allProducts = [];
   let selectedToCompare = new Set();
   let currentRendered = [];
@@ -221,7 +222,7 @@ document.title = "NASA | FedRAMP Marketplace";
               ${items.map(p => `
                 <tr>
                   <td><input type="checkbox" class="compareCheckbox" data-product-id="${p.product_id}" ${selectedToCompare.has(p.product_id) ? 'checked' : ''}></td>
-                  <td><a href="/${p.agency.toLowerCase().replace(/[^a-z0-9]/g, "-")}/${p.product_id}/">${p.product_name}</a></td>
+                  <td><a href="${basePath}/${p.agency.toLowerCase().replace(/[^a-z0-9]/g, "-")}/${p.product_id}/">${p.product_name}</a></td>
                   <td>${p.agency}</td>
                   <td>${p.sponsor}</td>
                   <td>${p.certification_level}</td>
