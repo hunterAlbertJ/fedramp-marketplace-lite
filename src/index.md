@@ -71,6 +71,7 @@ title: FedRAMP Marketplace
   let allProducts = [];
   let selectedToCompare = new Set();
   let currentRendered = [];
+  const basePath = window.location.pathname.replace(/\/$/, '');
 
   fetch('data/products.json')
     .then(res => res.json())
@@ -128,8 +129,8 @@ title: FedRAMP Marketplace
               ${items.map(p => `
                 <tr>
                   <td><input type="checkbox" class="compareCheckbox" data-product-id="${p.product_id}" ${selectedToCompare.has(p.product_id) ? 'checked' : ''}></td>
-                  <td><a href="/${p.agency.toLowerCase().replace(/[^a-z0-9]/g, "-")}/${p.product_id}/">${p.product_name}</a></td>
-                  <td><a href="/${p.agency.toLowerCase().replace(/[^a-z0-9]/g, "-")}/">${p.agency}</a></td>
+                  <td><a href="${basePath}/${p.agency.toLowerCase().replace(/[^a-z0-9]/g, "-")}/${p.product_id}/">${p.product_name}</a></td>
+                  <td><a href="${basePath}/${p.agency.toLowerCase().replace(/[^a-z0-9]/g, "-")}/">${p.agency}</a></td>
                   <td>${p.sponsor}</td>
                   <td>${p.certification_level}</td>
                   <td>${p.authorization_date}</td>
